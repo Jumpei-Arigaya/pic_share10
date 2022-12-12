@@ -16,6 +16,7 @@ export const useLoginAuth = () => {
                 if (res.data) {
                     const usersData = res.data
                     const matchLoginUser = usersData.find(user => user.email === email && user.password === password)
+                    console.log('match', matchLoginUser)
                     if (matchLoginUser) {
                         setLoginUser(matchLoginUser)
                         localStorage.clear()

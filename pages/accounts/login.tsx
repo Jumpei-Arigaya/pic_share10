@@ -35,7 +35,7 @@ const Login = () => {
                             <input name="password" className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <button onClick={onClickLogin} className="block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
-                            <a>ログイン</a>
+                            ログイン
                         </button>
                         <div className="flex justify-center items-center relative">
                             <span className="h-px bg-gray-300 absolute inset-x-0"></span>
@@ -49,7 +49,7 @@ const Login = () => {
                                     <path d="M5.52488 14.29C5.27488 13.57 5.14488 12.8 5.14488 12C5.14488 11.2 5.28488 10.43 5.52488 9.71V6.62H1.54488C0.724882 8.24 0.254883 10.06 0.254883 12C0.254883 13.94 0.724882 15.76 1.54488 17.38L5.52488 14.29Z" fill="#FBBC05" />
                                     <path d="M12.2549 4.75C14.0249 4.75 15.6049 5.36 16.8549 6.55L20.2749 3.13C18.2049 1.19 15.4949 0 12.2549 0C7.56492 0 3.51492 2.7 1.54492 6.62L5.52492 9.71C6.47492 6.86 9.12492 4.75 12.2549 4.75Z" fill="#EA4335" />
                                 </svg>
-                                <a>Googleでログイン</a>
+                                Googleでログイン
                             </button>
                         </Link>
                         <button onClick={onClickGuestLogin} className="flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3">

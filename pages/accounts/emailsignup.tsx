@@ -43,8 +43,8 @@ const Emailsignup = () => {
                     </div>
                     <div className="flex justify-center items-center bg-slate-50 p-4">
                         <p className="text-gray-500 text-sm text-center">アカウントをお持ちですか？
-                            <Link href='/accounts/login'>
-                                <a className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 transition duration-100 ml-3">ログインする</a>
+                            <Link href='/accounts/login' className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 transition duration-100 ml-3">
+                                ログインする
                             </Link>
                         </p>
                     </div>
