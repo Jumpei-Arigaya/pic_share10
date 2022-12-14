@@ -38,7 +38,6 @@ const Home: NextPage = () => {
   useEffect(() => {
     getFollowPostsData(1);
   }, [])
-  console.log(posts)
 
   return (
     <>
