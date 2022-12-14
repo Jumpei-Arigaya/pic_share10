@@ -1,4 +1,4 @@
-// import { parseISO, format } from 'date-fns'
+import { parseISO, format } from 'date-fns'
 import React from 'react'
 
 type Props = {
@@ -6,10 +6,10 @@ type Props = {
 }
 
 const Date = ({ dateString }: any) => {
-    // const date = parseISO(dateString)
+    const date = parseISO(dateString)
     return (
         <div>
-            {/* <time dateTime={dateString}>{format(parseISO(dateString), 'yyyy.MM.dd hh:mm',)}</time> */}
+            <time dateTime={dateString}>{format(parseISO(dateString), 'yyyy.MM.dd hh:mm',)}</time>
         </div>
     );
 }

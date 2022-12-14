@@ -1,6 +1,7 @@
 import GoodIcon from "../atoms/icon/GoodIcon";
 import { Post } from "../../types/api/Post";
 import Date from "../atoms/Date";
+import Link from "next/link";
 
 const PostList = ({ users, content, created_at, post_image, }: Post) => {
 
@@ -8,13 +9,17 @@ const PostList = ({ users, content, created_at, post_image, }: Post) => {
         <div className="w-[450px] h-[650px] m-8 shadow-2xl bg-white">
             <div className="flex flex-col overflow-hidden">
                 <div className="flex items-center gap-2 m-4">
-                    <div className="w-10 h-10 shrink-0 bg-gray-100 rounded-full overflow-hidden">
-                        <img src={users?.profile_image} loading="lazy" alt="Photo by Brock Wegner" className="w-full h-full object-cover object-center" />
-                    </div>
+                    <Link href={`/${users?.username}`}>
+                        <div className="w-10 h-10 shrink-0 bg-gray-100 rounded-full overflow-hidden">
+                            <img src={users?.profile_image} loading="lazy" alt="Photo by Brock Wegner" className="w-full h-full object-cover object-center" />
+                        </div>
+                    </Link>
                     <div>
-                        <span className="block text-indigo-500">{users?.username}</span>
+                        <Link href={`/${users?.username}`}>
+                            <span className="block text-indigo-500">{users?.username}</span>
+                        </Link>
                         <span className="block text-gray-400 text-sm">
-                            {<Date dateString={created_at} />}
+                            <Date dateString={created_at} />
                         </span>
                     </div>
                 </div>
