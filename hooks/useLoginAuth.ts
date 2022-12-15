@@ -23,7 +23,7 @@ export const useLoginAuth = () => {
                     if (matchLoginUser) {
                         setLoginUser(matchLoginUser)
                         localStorage.clear()
-                        const loginUserStringfy = JSON.stringify(matchLoginUser.id);
+                        const loginUserStringfy = JSON.stringify(matchLoginUser.user_id);
                         window.localStorage.setItem("loginUser", loginUserStringfy)
                         router.push('/')
                     } else {
