@@ -32,16 +32,16 @@ const Emailsignup = () => {
                             <span className="bg-white text-gray-400 text-sm relative px-4">または</span>
                         </div> */}
                         <div>
-                            <label className="inline-block text-gray-800 text-sm sm:text-base mb-2">ユーザー名</label>
-                            <input name="username" className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" type="text" autoComplete="new-off" placeholder="15文字以内で入力してください" maxLength={15} value={username} onChange={(e) => setUsername(e.target.value)} />
-                        </div>
-                        <div>
                             <label className="inline-block text-gray-800 text-sm sm:text-base mb-2">メールアドレス</label>
                             <input name="email" className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" type="email" autoComplete="off" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div>
                             <label className="inline-block text-gray-800 text-sm sm:text-base mb-2">パスワード</label>
                             <input name="password" className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" type="password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="inline-block text-gray-800 text-sm sm:text-base mb-2">ユーザー名</label>
+                            <input name="username" className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" type="text" autoComplete="new-off" placeholder="15文字以内で入力してください" maxLength={15} value={username} onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <button onClick={() => postAccountInfo(username, email, password)} type="submit" className="flex justify-center items-center w-full bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3 mt-4">
                             登録する
