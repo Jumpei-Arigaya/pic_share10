@@ -22,7 +22,7 @@ export const useGetIsFollow = () => {
             .catch(() => console.log('データ取得に失敗しました'))
     }
 
-    const userFollow = useCallback((followerUser: number, followeredUser: number) => {
+    const userFollow = useCallback((followerUser: string, followeredUser: string) => {
         setIsLoading(true)
         axios.post(`${SERVER_URL}api/follow_users/`, {
             follower_user: followerUser,

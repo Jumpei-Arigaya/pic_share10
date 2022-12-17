@@ -21,7 +21,7 @@ const Profile = () => {
             <div>
                 <div className="m-5 flex justify-between">
                     <ProfileData />
-                    {((loginUser?.id !== profileUser?.id) && !isLoading) && (
+                    {((loginUser?.user_id !== profileUser?.user_id) && !isLoading) && (
                         <FollowButtons />
                     )}
                 </div>
