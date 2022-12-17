@@ -13,11 +13,11 @@ const FollowButtons = () => {
     const { profileUser } = useContext(ProfileUserContext);
 
     const onClickFollowUserIcon = () => {
-        userFollow(loginUser?.id!, profileUser?.id!)
+        userFollow(loginUser?.user_id!, profileUser?.user_id!)
     }
 
     const onClickUnFollowUserIcon = () => {
-        userUnFollow(loginUser?.id!, profileUser?.id!);
+        userUnFollow(loginUser?.user_id!, profileUser?.user_id!);
     }
 
     return (
