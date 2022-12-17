@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
-const InputImageFile = () => {
-    const [file, setFile] = useState<File | null>(null);
+type Props = {
+    setPostImage: Dispatch<SetStateAction<Blob | null | undefined>>
+}
+
+const InputImageFile = ({ setPostImage }: Props) => {
     const onChangeFile = (e: any) => {
         const files = e.target.files
-        if (files && files[0]) {
-            setFile(files[0])
+        if (files) {
+            setPostImage(files[0])
         }
     }
-
 
     return (
         <div>

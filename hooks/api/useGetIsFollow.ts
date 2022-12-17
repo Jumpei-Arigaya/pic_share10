@@ -10,7 +10,7 @@ export const useGetIsFollow = () => {
     const [followList, setFollowList] = useState<Array<FollowUsers>>();
     const { isLoading, setIsLoading } = useContext(LoadingContext);
 
-    const getIsFollow = (loginUserId: number, profileUserId: number) => {
+    const getIsFollow = (loginUserId: string, profileUserId: string) => {
         axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`)
             .then(res => {
                 setFollowList(res.data);
@@ -35,7 +35,7 @@ export const useGetIsFollow = () => {
             .finally(() => setIsLoading(false))
     }, [])
 
-    const userUnFollow = useCallback(async (followerUser: number, followeredUser: number) => {
+    const userUnFollow = useCallback(async (followerUser: string, followeredUser: string) => {
         setIsLoading(true);
         let deleteId: number | undefined;
         await axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`)

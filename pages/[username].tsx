@@ -30,7 +30,7 @@ const UserProfile = () => {
     useEffect(() => {
         checkAuth(users)
         setProfileUser(users.find(res => res.username === URL_PATH)!)
-        getIsFollow(loginUser?.id!, profileUser?.id!);
+        getIsFollow(loginUser?.user_id!, profileUser?.user_id!);
     }, [users, isFollow])
 
     return (

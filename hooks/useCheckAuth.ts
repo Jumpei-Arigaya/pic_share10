@@ -13,7 +13,7 @@ export const useCheckAuth = () => {
         const defaultAuthInfo: string = JSON.parse(localStorage.getItem("loginUser") as string)
         const matchLoginUser: Users = users.find(user => user.user_id === defaultAuthInfo)!
         if (!loginUser) {
-            if (matchLoginUser) {
+            if (defaultAuthInfo) {
                 setLoginUser(matchLoginUser!)
             } else {
                 router.replace('/accounts/login')

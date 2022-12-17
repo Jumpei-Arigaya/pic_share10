@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useGetAllUsers } from "../../hooks/api/useGetAllUsers";
 import { usePostModal } from "../../hooks/api/usePostModal";
+import { usePostPost } from "../../hooks/api/usePostPost";
 import { LoginUserContext } from "../../providers/LoginUserProviders";
 import BackButton from "../atoms/icon/BackButton";
 import InputImageFile from "../atoms/InputImageFile";
@@ -14,6 +15,8 @@ export default function App() {
     const { loginUser } = useContext(LoginUserContext);
     const dateTime = new Date();
     const { getAllUsers, users } = useGetAllUsers();
+    const { postPost } = usePostPost();
+    const [postImage, setPostImage] = useState<Blob | null>();
 
     useEffect(() => {
         getAllUsers()
@@ -30,11 +33,11 @@ export default function App() {
                                     <BackButton />
                                 </div>
                                 <h1 className="text-center text-xl">新規投稿を作成</h1>
-                                <button className="text-blue-600" onClick={() => modalClose()}>SHARE</button>
+                                <button className="text-blue-600" onClick={() => postPost(content, postImage!)}>SHARE</button>
                             </div>
                             <div className="grid grid-cols-3 h-[600px]">
                                 <div className="col-span-2 flex justify-center items-center h-ful border-r">
-                                    <PostPreview profile_image={loginUser?.profile_image} user_name={loginUser?.username} content={content} />
+                                    <PostPreview profile_image={loginUser?.profile_image} user_name={loginUser?.username} content={content} postImage={postImage!} />
                                 </div>
                                 <div className="col-span-1 h-full border-b">
                                     <div className="border">
@@ -42,7 +45,7 @@ export default function App() {
                                             <ProfileData />
                                         </div>
                                         <div className="mt-5 mx-3">
-                                            <InputImageFile />
+                                            <InputImageFile setPostImage={setPostImage} />
                                         </div>
                                         <div className="flex justify-center">
                                             <textarea className="border-gray-400 border mt-7 w-60 h-20" placeholder="20文字までのコメントを入力" maxLength={20} wrap='soft' value={content} onChange={(e) => setContent(e.target.value)} />
@@ -54,7 +57,8 @@ export default function App() {
                         </div>
                     </div>
                 </div >
-            )}
+            )
+            }
         </div >
     );
 }
