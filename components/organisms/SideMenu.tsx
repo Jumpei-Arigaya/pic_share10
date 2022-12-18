@@ -1,4 +1,5 @@
 import Link from "next/link";
+import router from "next/router";
 import { useContext } from "react";
 import { usePostModal } from "../../hooks/api/usePostModal";
 import { LoginUserContext } from "../../providers/LoginUserProviders";
@@ -10,6 +11,12 @@ import ProfileIcon from "../atoms/icon/ProfileIcon";
 const SideMenu = () => {
     const { modalState, modalOpen, modalClose } = usePostModal();
     const { loginUser, setLoginUser } = useContext(LoginUserContext);
+
+    const onClickLogout = () => {
+        setLoginUser(null);
+        localStorage.clear()
+        router.push('accounts/login')
+    }
 
     return (
         <div className="h-screen bg-white p-1 w-64 min-w-min border-r sticky top-0">
@@ -37,12 +44,10 @@ const SideMenu = () => {
                         プロフィール
                     </li>
                 </Link>
-                <Link href='/accounts/login'>
-                    <p onClick={() => setLoginUser(null)}><li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer">
-                        <LogoutIcon />
-                        ログアウト
-                    </li></p>
-                </Link>
+                <p onClick={onClickLogout}><li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer">
+                    <LogoutIcon />
+                    ログアウト
+                </li></p>
             </ul >
         </div >
     );
