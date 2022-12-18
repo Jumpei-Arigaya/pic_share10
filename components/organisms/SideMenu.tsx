@@ -19,8 +19,8 @@ const SideMenu = () => {
     }
 
     return (
-        <div className="md:h-screen bg-white p-1 md:w-64 min-w-min border-r sticky top-0">
-            <ul className="flex md:inline">
+        <div className="lg:h-screen bg-white p-1 lg:w-64 min-w-min lg:border-r sticky top-0">
+            <ul className="flex justify-between w-screen lg:inline">
                 <Link href={'/'}>
                     < li className="m-3 p-2 cursor-pointer text-3xl font-extrabold" >
                         PIC SHARE

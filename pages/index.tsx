@@ -39,21 +39,19 @@ const Home: NextPage = () => {
     <>
       {loginUser && (
         <div className={`${scrollability}`}>
-          <div className='md:grid grid-cols-3'>
-            <div className='col-span-1 ml-1 sticky top-0'>
+          <div className='flex flex-wrap'>
+            <div className='flex justify-between lg:w-1/3 lg:sticky lg:top-0'>
               <SideMenu />
             </div>
-            <div className='col-span-1'>
-              <div className='flex flex-wrap justify-center'>
-                {isLoading && (
-                  <Loading />
-                )}
-                {posts.map((post) =>
-                  <PostList key={post.id} content={post.content} created_at={post.created_at} post_image={post.post_image} users={post.users} />
-                )}
-              </div>
+            <div className='flex flex-wrap justify-center lg:w-1/3'>
+              {isLoading && (
+                <Loading />
+              )}
+              {posts.map((post) =>
+                <PostList key={post.id} content={post.content} created_at={post.created_at} post_image={post.post_image} users={post.users} />
+              )}
             </div>
-            <div className='col-span-1 flex justify-center mt-32'>
+            <div className='hidden lg:w-1/3 lg:mt-32 lg:flex justify-center w-auto'>
               <SideProfile />
             </div>
           </div >

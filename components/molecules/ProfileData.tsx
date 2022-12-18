@@ -20,7 +20,7 @@ const ProfileData = () => {
         <div className="flex">
             <Link href={`/${profileUser?.username}`}>
                 <div className="w-20 h-20 shrink-0 bg-gray-100 rounded-full overflow-hidden">
-                    <img src={profileUser?.profile_image} className="w-full h-full object-cover object-center" />
+                    <img src={profileUser?.profile_image} className="w-auto h-auto object-cover object-center" />
                 </div>
             </Link>
             <div className="ml-8">

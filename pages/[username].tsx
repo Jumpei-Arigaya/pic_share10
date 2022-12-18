@@ -35,18 +35,20 @@ const UserProfile = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-3'>
-                <div className='col-span-1 flex ml-1 sticky top-2'>
+            <div className='flex flex-wrap'>
+                <div className='lg:w-1/3 flex flex-wrap ml-1 lg:sticky lg:top-2'>
                     <SideMenu />
                     <div className="m-4" onClick={() => router.back()}>
                         <BackButton />
                     </div>
                 </div>
-                <div className='col-span-1 flex justify-center mt-7'>
+                <div className='flex justify-end lg:w-1/3 lg:mt-7'>
                     <Profile />
                 </div>
-                <Share />
             </div >
+            <div>
+                <Share />
+            </div>
         </div >
 
     );

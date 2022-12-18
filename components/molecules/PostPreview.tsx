@@ -33,11 +33,11 @@ const PostPreview = ({ profile_image, user_name, content, postImage }: PostPrevi
                 </div>
                 <div className="flex justify-center">
                     <a className="group w-[300px] h-[370px] block bg-gray-100 overflow-hidden relative mt-1">
-                        <img src={image} loading="lazy" alt="Photo by Minh Pham" className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200" />
+                        <img src={image} loading="lazy" className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200" />
                     </a>
                 </div>
                 <div className="flex flex-col flex-1 p-4 sm:p-6">
-                    <p className="text-gray-500 mb-4">{content}</p>
+                    <p className="text-gray-500 mb-4 overflow-hidden">{content}</p>
                     <div className="flex justify-end items-end mt-auto">
                         <GoodIcon />
                     </div>
