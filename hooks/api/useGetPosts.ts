@@ -12,19 +12,13 @@ export const useGetPosts = () => {
     const [posts, setPosts] = useState<Array<Post>>([]);
     const { setIsLoading } = useContext(LoadingContext);
 
-    const getFollowPostsData = useCallback((loginUserId: number) => {
+    const getPostsData = useCallback(() => {
 
         setIsLoading(true);
         axios.get<Array<Post>>(`${SERVER_URL}api/posts/`)
             .then(res => {
                 res.data.map(post => {
                     const { users } = post
-                    // for (let i = 0; i < (post.users?.followered)!.length; i++) {
-                    //     if (users?.followered![i].follower_user == loginUserId) {
-                    //         setPosts(prev => [...prev, { ...post }])
-                    //         break;
-                    //     }
-                    // }
                     setPosts(res.data)
                 })
             })
@@ -34,6 +28,6 @@ export const useGetPosts = () => {
             )
     }, [])
 
-    return { getFollowPostsData, posts }
+    return { getPostsData, posts }
 }
 
