@@ -51,7 +51,7 @@ const Home: NextPage = () => {
                 <PostList key={post.id} content={post.content} created_at={post.created_at} post_image={post.post_image} users={post.users} />
               )}
             </div>
-            <div className='hidden lg:w-1/3 lg:mt-32 lg:flex justify-center'>
+            <div className='hidden lg:w-1/3 lg:mt-32 lg:flex justify-center w-auto'>
               <SideProfile />
             </div>
           </div >

@@ -18,16 +18,14 @@ const Profile = () => {
 
     return (
         <div className="shadow-lg p-1 w-96 h-96 bg-white">
-            <div>
-                <div className="m-5 flex justify-between">
-                    <ProfileData />
-                    {((loginUser?.user_id !== profileUser?.user_id) && !isLoading) && (
-                        <FollowButtons />
-                    )}
-                </div>
-                <hr className="m-1" />
-                <p className="m-5">{profileUser?.introduction}</p>
+            <div className="m-5 flex justify-between">
+                <ProfileData />
+                {((loginUser?.user_id !== profileUser?.user_id) && !isLoading) && (
+                    <FollowButtons />
+                )}
             </div>
+            <hr className="m-1" />
+            <p className="m-5">{profileUser?.introduction}</p>
         </div>
     );
 }
