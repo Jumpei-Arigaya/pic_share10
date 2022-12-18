@@ -32,7 +32,6 @@ const Home: NextPage = () => {
   useEffect(() => {
     if (loginUser) {
       setProfileUser(loginUser)
-
     }
   }, [users])
 
@@ -40,7 +39,7 @@ const Home: NextPage = () => {
     <>
       {loginUser && (
         <div className={`${scrollability}`}>
-          <div className='grid grid-cols-3'>
+          <div className='md:grid grid-cols-3'>
             <div className='col-span-1 ml-1 sticky top-0'>
               <SideMenu />
             </div>
