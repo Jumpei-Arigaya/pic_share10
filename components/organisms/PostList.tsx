@@ -6,7 +6,7 @@ import Link from "next/link";
 const PostList = ({ users, content, created_at, post_image, }: Post) => {
 
     return (
-        <div className="w-[450px] h-[650px] m-8 shadow-2xl bg-white">
+        <div className="min-w-[370px] min-h-[640px] m-4 lg:m-8 shadow-2xl bg-white">
             <div className="flex flex-col overflow-hidden">
                 <div className="flex items-center gap-2 m-4">
                     <Link href={`/${users?.username}`}>
@@ -23,16 +23,16 @@ const PostList = ({ users, content, created_at, post_image, }: Post) => {
                         </span>
                     </div>
                 </div>
-                <div className="flex justify-center">
-                    <a href="#" className="group w-[400px] h-[470px] block bg-gray-100 overflow-hidden relative mt-1">
+                <div className="flex justify-center items-center">
+                    <a href="#" className="group w-[340px] h-[470px] block bg-gray-100 overflow-hidden relative mt-1">
                         <img src={post_image} className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200" />
                     </a>
                 </div>
                 <div className="flex flex-col flex-1 p-4 sm:p-6">
                     <p className="text-gray-500 mb-4">{content}</p>
-                    <div className="flex justify-end items-end mt-auto">
+                    {/* <div className="flex justify-end items-end mt-auto">
                         <GoodIcon />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div >

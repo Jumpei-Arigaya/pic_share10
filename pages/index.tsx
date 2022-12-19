@@ -39,8 +39,8 @@ const Home: NextPage = () => {
     <>
       {loginUser && (
         <div className={`${scrollability}`}>
-          <div className='flex flex-wrap'>
-            <div className='flex justify-between lg:w-1/3 lg:sticky lg:top-0'>
+          <div className='lg:flex flex-nowrap'>
+            <div className='lg:w-1/3 lg:sticky lg:top-0 ml-1'>
               <SideMenu />
             </div>
             <div className='flex flex-wrap justify-center lg:w-1/3'>

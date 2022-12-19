@@ -27,7 +27,7 @@ export default function App() {
             {modalState && (
                 <div>
                     <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center fixed top-0 right-0 bottom-0 left-0">
-                        <div className="bg-white h-[650px] w-[900px] rounded-md">
+                        <div className="bg-white h-screen w-screen lg:h-[650px] lg:w-[900px] rounded-md">
                             <div className="flex justify-between items-center h-[50px] border-b p-3">
                                 <div onClick={() => modalClose()}>
                                     <BackButton />
@@ -35,13 +35,13 @@ export default function App() {
                                 <h1 className="text-center text-xl">新規投稿を作成</h1>
                                 <button className="text-blue-600" onClick={() => postPost(content, postImage!)}>SHARE</button>
                             </div>
-                            <div className="grid grid-cols-3 h-[600px]">
-                                <div className="col-span-2 flex justify-center items-center h-ful border-r">
+                            <div className="flex justify-center flex-wrap lg:h-[600px]">
+                                <div className="w-7/8 md:w-2/3 flex justify-center lg:items-center border-r">
                                     <PostPreview profile_image={loginUser?.profile_image} user_name={loginUser?.username} content={content} postImage={postImage!} />
                                 </div>
-                                <div className="col-span-1 h-full border-b">
+                                <div className="w-1/8 md:w-1/3 border-b">
                                     <div className="border">
-                                        <div className="m-3">
+                                        <div className="m-3 hidden lg:inline-block">
                                             <ProfileData />
                                         </div>
                                         <div className="mt-5 mx-3">
@@ -57,8 +57,7 @@ export default function App() {
                         </div>
                     </div>
                 </div >
-            )
-            }
+            )}
         </div >
     );
 }
