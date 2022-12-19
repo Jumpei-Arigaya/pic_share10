@@ -19,35 +19,45 @@ const SideMenu = () => {
     }
 
     return (
-        <div className="lg:h-screen bg-white p-1 lg:w-64 min-w-min lg:border-r sticky top-0">
-            <ul className="flex justify-between w-screen lg:inline">
+        <div className="w-screen lg:h-screen bg-white p-1 lg:w-64 lg:border-r lg:sticky lg:top-0">
+            <ul className="flex justify-between lg:inline">
                 <Link href={'/'}>
-                    < li className="m-3 p-2 cursor-pointer text-3xl font-extrabold" >
+                    < li className="m-3 p-2 cursor-pointer text-md lg:text-3xl font-extrabold" >
                         PIC SHARE
                     </li >
                 </Link>
                 <Link href={'/'}>
                     <li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer">
                         <HomeIcon />
-                        ホーム
+                        <p className="hidden md:inline-block ">
+                            ホーム
+                        </p>
                     </li>
                 </Link>
                 <a>
                     <li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer" onClick={() => modalOpen()}>
                         <CmaeraIcon />
-                        シェアする
+                        <p className="hidden md:inline-block ">
+                            シェアする
+                        </p>
                     </li>
                 </a>
                 <Link href={`${loginUser?.username}`}>
                     <li className="flex m-4  p-2 hover:bg-slate-200 cursor-pointer">
                         <ProfileIcon />
-                        プロフィール
+                        <p className="hidden md:inline-block ">
+                            プロフィール
+                        </p>
                     </li>
                 </Link>
-                <p onClick={onClickLogout}><li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer">
-                    <LogoutIcon />
-                    ログアウト
-                </li></p>
+                <div onClick={onClickLogout}>
+                    <li className="flex m-4 p-2 hover:bg-slate-200 cursor-pointer">
+                        <LogoutIcon />
+                        <p className="hidden md:inline-block ">
+                            ログアウト
+                        </p>
+                    </li>
+                </div>
             </ul >
         </div >
     );
