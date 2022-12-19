@@ -24,12 +24,12 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getAllUsers();
-    checkAuth(users)
     getPostsData();
   }, [])
 
 
   useEffect(() => {
+    checkAuth(users)
     if (loginUser) {
       setProfileUser(loginUser)
     }
