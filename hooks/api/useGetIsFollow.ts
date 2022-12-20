@@ -6,12 +6,13 @@ import axios from "axios"
 
 export const useGetIsFollow = () => {
     const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const { isFollow, setIsFollow } = useContext(ProfileContext);
     const [followList, setFollowList] = useState<Array<FollowUsers>>();
     const { isLoading, setIsLoading } = useContext(LoadingContext);
 
     const getIsFollow = (loginUserId: string, profileUserId: string) => {
-        axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`)
+        axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`, { headers: { 'Authorization': API_KEY } })
             .then(res => {
                 setFollowList(res.data);
                 if (followList) {
@@ -26,8 +27,8 @@ export const useGetIsFollow = () => {
         setIsLoading(true)
         axios.post(`${SERVER_URL}api/follow_users/`, {
             follower_user: followerUser,
-            followered_user: followeredUser
-        })
+            followered_user: followeredUser,
+        }, { headers: { 'Authorization': API_KEY } })
             .then(res => {
                 setIsFollow(true)
             })
@@ -38,12 +39,13 @@ export const useGetIsFollow = () => {
     const userUnFollow = useCallback(async (followerUser: string, followeredUser: string) => {
         setIsLoading(true);
         let deleteId: number | undefined;
-        await axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`)
+        await axios.get<Array<FollowUsers>>(`${SERVER_URL}api/follow_users`, { headers: { 'Authorization': API_KEY } })
             .then(res => {
                 deleteId = (res.data.find(list => list.follower_user === followerUser && list.followered_user === followeredUser))?.id
             })
             .catch(() => console.log('データ取得に失敗しました'))
         await axios.delete(`${SERVER_URL}api/follow_users/${deleteId}`, {
+            headers: { 'Authorization': API_KEY }
         })
             .then(res => {
                 setIsFollow(false)

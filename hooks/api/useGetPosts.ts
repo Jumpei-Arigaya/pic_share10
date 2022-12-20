@@ -9,13 +9,14 @@ import { ProfileContext } from '../../providers/ProfileProviders';
 
 export const useGetPosts = () => {
     const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const [posts, setPosts] = useState<Array<Post>>([]);
     const { setIsLoading } = useContext(LoadingContext);
 
     const getPostsData = useCallback(() => {
 
         setIsLoading(true);
-        axios.get<Array<Post>>(`${SERVER_URL}api/posts/`)
+        axios.get<Array<Post>>(`${SERVER_URL}api/posts/`, { headers: { 'Authorization': API_KEY } })
             .then(res => {
                 res.data.map(post => {
                     const { users } = post

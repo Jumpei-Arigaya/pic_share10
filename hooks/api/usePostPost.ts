@@ -7,6 +7,7 @@ import router from 'next/router';
 
 export const usePostPost = () => {
     const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
     const { modalState, modalClose } = usePostModal();
     const { loginUser } = useContext(LoginUserContext);
 
@@ -16,7 +17,8 @@ export const usePostPost = () => {
         formData.append('content', content);
         formData.append('post_image', postImage);
         axios.post(`${SERVER_URL}api/posts/`,
-            formData
+            formData,
+            { headers: { 'Authorization': API_KEY } }
         )
             .then(() => {
                 modalClose();
