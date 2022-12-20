@@ -43,7 +43,7 @@ const Home: NextPage = () => {
             <div className='lg:w-1/3 lg:sticky lg:top-0 ml-1'>
               <SideMenu />
             </div>
-            <div className='flex flex-wrap justify-center lg:w-1/3'>
+            <div className='lg:flex flex-wrap justify-center lg:w-1/3'>
               {isLoading && (
                 <Loading />
               )}

@@ -26,7 +26,7 @@ export default function App() {
         <div className="App">
             {modalState && (
                 <div>
-                    <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center fixed top-0 right-0 bottom-0 left-0">
+                    <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center fixed top-0 right-0 bottom-0 left-0  mt-4 lg:mt-0">
                         <div className="bg-white h-screen w-screen lg:h-[650px] lg:w-[900px] rounded-md">
                             <div className="flex justify-between items-center h-[50px] border-b p-3">
                                 <div onClick={() => modalClose()}>
