@@ -27,7 +27,6 @@ const Home: NextPage = () => {
     getPostsData();
   }, [])
 
-
   useEffect(() => {
     checkAuth(users)
     if (loginUser) {
@@ -37,6 +36,9 @@ const Home: NextPage = () => {
 
   return (
     <>
+      {isLoading && (
+        <Loading />
+      )}
       {loginUser && (
         <div className={`${scrollability}`}>
           <div className='lg:flex flex-nowrap'>
@@ -44,9 +46,6 @@ const Home: NextPage = () => {
               <SideMenu />
             </div>
             <div className='lg:flex flex-wrap justify-center lg:w-1/3'>
-              {isLoading && (
-                <Loading />
-              )}
               {posts.map((post) =>
                 <PostList key={post.id} content={post.content} created_at={post.created_at} post_image={post.post_image} users={post.users} />
               )}
@@ -64,24 +63,3 @@ const Home: NextPage = () => {
   )
 }
 export default Home
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   // const res = await fetch('http://localhost:8000/api/posts/')
-//   // const posts = (await res.json()) as Posts;
-
-//   const posts: Array<Posts> = [{
-//     id: 1,
-//     content: "yeah"
-//   }, {
-//     id: 2,
-//     content: "hello"
-//   }
-//   ]
-
-//   return {
-//     props: {
-//       posts
-//     },
-//   };
-// };
-
