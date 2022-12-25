@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useGetAllUsers } from "../../hooks/api/useGetAllUsers";
 import { usePostModal } from "../../hooks/api/usePostModal";
 import { usePostPost } from "../../hooks/api/usePostPost";
+import { LoadingContext } from "../../providers/LoadingProviders";
 import { LoginUserContext } from "../../providers/LoginUserProviders";
 import BackButton from "../atoms/icon/BackButton";
 import InputImageFile from "../atoms/InputImageFile";
@@ -17,6 +18,7 @@ export default function App() {
     const { getAllUsers, users } = useGetAllUsers();
     const { postPost } = usePostPost();
     const [postImage, setPostImage] = useState<Blob | null>();
+    const { isLoading } = useContext(LoadingContext);
 
     useEffect(() => {
         getAllUsers()
@@ -24,7 +26,7 @@ export default function App() {
 
     return (
         <div className="App">
-            {modalState && (
+            {(modalState && !isLoading) && (
                 <div>
                     <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center fixed top-0 right-0 bottom-0 left-0  mt-4 lg:mt-0">
                         <div className="bg-white h-screen w-screen lg:h-[650px] lg:w-[900px] rounded-md">
