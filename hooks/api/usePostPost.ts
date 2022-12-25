@@ -26,7 +26,7 @@ export const usePostPost = () => {
         )
             .then(() => {
                 modalClose();
-                router.replace('/')
+                router.reload();
             })
             .catch((e) => alert('入力内容を確認してください'))
             .finally(() => setIsLoading(false))
